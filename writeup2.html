@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="z-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>计算机的writeup</title>
+</head>
+<boby>
+<h1>Bugku-CTF 计算机 (Web) 解题报告</h1>
+
+<h2>题目信息</h2>
+<p>题目：计算机，类型:Web，分数：10</p>
+<p>现象：打开场景后出现一个两位数加法，答案为三位数114，但答案框内只能打出一个数字</p>
+
+<h2>解题思路</h2>
+<p>1.在发现输入框存在输入字数限制后检查代码</p>
+<p>2.使用Fn+F12打开开发者工具</p>
+<p>3.j检查代码发现字符限制为“1”，将其改为答案字符数"3"</p>
+<p>4.输入答案获取Flag答案</p>
+
+<h2>Flag</h2>
+<p>Flag答案：flag{72895fec241cd6c0e040d10ba2d865ea}</p>
+
+<p><a href="index.html">返回博客主页</a></p>
+</body>
+</html>
