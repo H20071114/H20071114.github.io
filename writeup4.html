@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>你必须让他停下的writeup</title>
+</head>
+<boby>
+<h1>Bugku-CTF 你必须让他停下 (Web) 解题报告</h1>
+
+<h2>题目信息</h2>
+<p>题目：你必须让他停下，类型:Web，分数：10</p>
+<p>现象：打开场景后页面不断刷新</p>
+
+<h2>解题思路</h2>
+<p>1.页面自动刷新是 JavaScript 脚本控制的，每隔一段时间就重载页面。</p>
+<p>2.按F12打开浏览器开发者工具，点开设置，勾选禁用JavaScript。</p>
+<p>3.刷新页面，网页停止自动跳动，页面固定不动。</p>
+<p>4.使用快捷键 Ctrl+U 查看网页源代码，Ctrl+F 搜索flag，直接找到答案</p>
+
+<h2>Flag</h2>
+<p>Flag答案：flag{5d5e0a197e90de875b1502f15fc21bd5}</p>
+
+<h2>学习结果</h2>
+<p>JavaScript是一种网页脚本代码，写在网页里面，用来让网页“动起来”。HTML只负责展示文字、图片。摁F5可以刷新页面。</p>
+
+<p><a href="index.html">返回博客主页</a></p>
+</body>
+</html>
