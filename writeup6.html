@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>POSTwriteup</title>
+</head>
+<body>
+<h1>Bugku-CTF POST (Web) 解题报告</h1>
+
+<h2>题目信息</h2>
+<p>题目：POST，类型:Web，分数：10</p>
+<p>现象：出现代码：$what=$_POST[‘what’];
+echo $what;
+if($what==’flag’)
+echo ‘flag{**}’;</p>
+
+<h2>解题思路</h2>
+<p>1.阅读代码，发现需要有POST请求类型使what=flag时可以得到flag。</p>
+<p>2.不知道怎么搞POST，我就先问了豆包</p>
+<p>3.根据豆包给的方法，打开开发者工具在网络中先勾选保留日志再刷新一次。</p>
+<p>4.右键点击刷新申请在栏中选编辑并重新发送。</p>
+<p>5.点击完后下面出现新的栏目，在模式中从"Get"变为"POST"。</p>
+<p>6.将标签由"Query"点到"Body"。</p>
+<p>7.在key中填what,在value中填flag。</p>
+<p>最后向下翻获取Flag答案</p>
+
+<h2>Flag</h2>
+<p>Flag答案：flag{451d0b37a121bebe4cc66a8312466385}</p>
+
+<h1>问题</h1>
+<h2>为什么要勾选保留日志</h2>
+<p>勾选「保留日志」，防止刷新页面时网络请求记录被自动清空。</p>
+<h2>POST与GET有什么区别</h2>
+<p>GET：请求参数附加在网页URL地址后面，一般用于获取页面内容。
+POST：请求参数放在请求体（Body）中，不会显示在网址上。本题PHP代码使用 $_POST 接收POST类型的参数，因此必须使用POST请求，传入 what=flag 才能获取flag。</p>
+
+<p><a href="index.html">返回博客主页</a></p>
+</body>
+</html>
