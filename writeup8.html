@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>get的writeup</title>
+</head>
+<body>
+<h1>Bugku-CTF get (Web)解题报告</h1>
+
+<h2>题目信息</h2>
+<p>题目: get，类型:Web，分数: 10</p >
+<p>现象: 打开场景后页面提示需要传入GET参数，页面没有直接显示flag</p >
+
+<h2>解题思路</h2>
+<p>1.题目要求使用GET方式传递参数，GET参数写在URL问号?后面。</p >
+<p>2.在浏览器地址栏构造链接：靶场地址/?what=flag</p >
+<p>3.按下回车访问，页面返回flag。</p >
+
+<h2>Flag答案</h2>
+<p>flag{这里填写你拿到的flag}</p >
+
+<h2>学习结果</h2>
+<p>GET请求：参数附加在URL地址中，通过?拼接，参数明文显示在地址栏。URL格式：网址?key=value，多个参数用&分隔。</p >
+
+<p><a href=" ">返回博客主页</a ></p >
+</body>
+</html>
