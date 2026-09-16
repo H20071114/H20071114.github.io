@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>source Writeup</title>
+<style>
+body{max-width:900px;margin:30px auto;font-family:Microsoft Yahei;line-height:1.6;padding:0 20px;}
+pre{background:#222;color:#0f0;padding:15px;border-radius:6px;overflow-x:auto;}
+h2{border-left:5px solid #4285f4;padding-left:10px;}
+</style>
+</head>
+<body>
+<h1>Bugku source Writeup</h1>
+<h2>题目信息</h2>
+<p>题目：POST，类型:Web，分数：10</p>
+<p>场景中只存在几个没有信息的文字</p >
+
+<h2>解题过程</h2>
+<p>1. 访问靶场页面，发现存在 /.git/ 目录，存在Git源码泄露漏洞。</p >
+<p>2. 使用GitHacker工具拉取仓库源码，命令：</p >
+<pre>githacker --url http://160.202.254.160:12786/git/ --output-folder bugku_source</pre>
+<p>⚠️ 协议必须是http，使用https会出现SSL版本错误。</p >
+<p>3. 等待工具执行完毕，提示 exploited successfully 代表导出成功，进入仓库目录：</p >
+<pre>cd bugku_source\d8bfea8fc54f947ae682588ccdf5765</pre>
+<p>4. 当前目录flag.txt为假flag，使用git reflog查看全部操作记录：</p >
+<pre>git reflog</pre>
+<p>5. 使用git show + commit哈希，查看旧版本文件：</p >
+<pre>git show 40c6d51</pre>
+<p>6. 获取flag：<strong>flag{git_is_good_distributed_version_control_system}</strong></p >
+
+<h2>知识点</h2>
+<ul>
+<li>Git泄露：网站上线未删除.git文件夹，可下载源码+全部历史版本</li>
+<li>git reflog：记录所有仓库操作，找回被reset丢弃的提交</li>
+<li>git show：查看某次提交的文件内容，找回被删除信息</li>
+</ul>
+<p><a href="index.html">返回博客主页</a></p>
+</body>
+</html>
